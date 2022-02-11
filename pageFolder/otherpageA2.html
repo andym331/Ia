@@ -1,0 +1,76 @@
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- THE CSS -->
+
+    <style>
+	
+	svg {
+		position: absolute;
+		pointer-events: none;
+	}
+	svg g {
+		pointer-events: auto;
+	}
+	
+    body {
+        margin: 0px;
+      }
+	#theContainer {
+		background-image: url("../imgFolder/Descript_KiwaNaka.png");
+		background-position: 50% 30%;
+		background-repeat: no-repeat;
+		background-size: 100%;
+		margin: auto; /* keeps div centered */
+		position: relative;
+		}
+
+	  
+    </style>
+
+    <!-- THE JAVASCRIPT (what I added) -->
+    <script>
+      // aspect ratio of image
+      var arImg = 1.5015015015;
+
+// resizes "theContainer" based on aspect ratio of screen and background image
+      function scaleContainer() {
+        var arScreen = window.innerWidth/window.innerHeight;
+        var ctnr = document.getElementById("theContainer");
+        if (arScreen < arImg) {
+          ctnr.style.width = "100vw";
+          ctnr.style.height = (100 / arImg) + "vw";
+        }
+        else {
+          ctnr.style.width = (100 * arImg) + "vh";
+          ctnr.style.height = "100vh";
+        }
+      }
+    </script>
+  </head>
+
+  <!-- THE BODY (I added "onload" and "onresize" attributes)-->
+  <body onload="scaleContainer()" onresize="scaleContainer()">
+
+	 <audio no-controls autoplay>
+	  <source src="../audFolder/XiyaNakaKiwa_audStereo.mp3" type="audio/mp3">
+	  Your browser does not support the audio tag.
+	</audio> 
+
+
+    <!-- THE CONTAINER -->
+    <div id="theContainer">
+
+
+
+
+    </div>
+	
+
+	
+  
+  </body>
+</html>
